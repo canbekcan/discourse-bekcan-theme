@@ -6,5 +6,9 @@
   "color_schemes": {},
   "assets": {},
   "learn_more": "",
-  "components": []
+  "components": [],
+  "screenshots": [
+    "screenshots/light.png",
+    "screenshots/dark.png"
+  ]
 }
