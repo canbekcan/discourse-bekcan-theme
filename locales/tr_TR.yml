@@ -10,3 +10,5 @@ tr_TR:
     description: "BEKCAN Enstitüsü için özel olarak tasarlanmış bir Discourse temasıdır. Modern ve kullanıcı dostu bir arayüz sunarak, topluluk üyelerinin etkileşimini artırmayı hedefler."
     settings:
       tag_colors: "Etiket bilgilerini VİRGÜL ile ayırarak ekleyin: etiket-adi, arkaplan-rengi, metin-rengi, ikon (Opsiyonel). Örn: manifesto, #8C6238, #FFFFFF, 📜"
+      tag_colors_name: "Etiket Renkleri"
+      tag_colors_desc: "Etiket bilgilerini VİRGÜL ile ayırarak ekleyin: etiket-adi, arkaplan-rengi, metin-rengi, ikon (Opsiyonel). Örn: manifesto, #8C6238, #FFFFFF, 📜"
