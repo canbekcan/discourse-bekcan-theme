@@ -1,4 +1,3 @@
 tag_colors:
   default: ""
   type: list
-  description: "Etiket bilgilerini VİRGÜL ile ayırarak ekleyin: etiket-adi, arkaplan-rengi, metin-rengi, ikon (Opsiyonel). Örn: manifesto, #8C6238, #FFFFFF, 📜"
