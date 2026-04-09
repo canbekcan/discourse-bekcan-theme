@@ -8,4 +8,5 @@ en:
   theme_metadata:
     description: "A Discourse theme designed specifically for the BEKCAN Institute. It offers a modern and user-friendly interface to enhance community engagement."
     name: "BEKCAN Theme"
-    tag_colors: "Add tag information separated by COMMAS: tag-name, background-color, text-color, icon (Optional). Ex: manifesto, #8C6238, #FFFFFF, 📜"
+    tag_colors: 
+      description: "Add tag information separated by COMMAS: tag-name, background-color, text-color, icon (Optional). Ex: manifesto, #8C6238, #FFFFFF, 📜"
