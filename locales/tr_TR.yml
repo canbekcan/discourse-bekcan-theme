@@ -4,9 +4,9 @@
 # To work with us on translations, join this project:
 # https://translate.discourse.org/
 
-tr_TR:
+tr:
   theme_metadata:
-    description: "BEKCAN Enstitüsü için özel olarak tasarlanmış bir Discourse temasıdır. Modern ve kullanıcı dostu bir arayüz sunarak, topluluk üyelerinin etkileşimini artırmayı hedefler."
     name: "BEKCAN Teması"
-    tag_colors: 
-      description: "Etiket bilgilerini VİRGÜL ile ayırarak ekleyin: etiket-adi, arkaplan-rengi, metin-rengi, ikon (Opsiyonel). Örn: manifesto, #8C6238, #FFFFFF, 📜"
+    description: "BEKCAN Enstitüsü için özel olarak tasarlanmış bir Discourse temasıdır. Modern ve kullanıcı dostu bir arayüz sunarak, topluluk üyelerinin etkileşimini artırmayı hedefler."
+  theme_settings:
+    tag_colors: "Etiket bilgilerini VİRGÜL ile ayırarak ekleyin: etiket-adi, arkaplan-rengi, metin-rengi, ikon (Opsiyonel). Örn: manifesto, #8C6238, #FFFFFF, 📜"
