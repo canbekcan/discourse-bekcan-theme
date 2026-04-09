@@ -4,7 +4,7 @@
 # To work with us on translations, join this project:
 # https://translate.discourse.org/
 
-tr:
+tr_TR:
   theme_metadata:
     name: "BEKCAN Teması"
     description: "BEKCAN Enstitüsü için özel olarak tasarlanmış bir Discourse temasıdır. Modern ve kullanıcı dostu bir arayüz sunarak, topluluk üyelerinin etkileşimini artırmayı hedefler."
