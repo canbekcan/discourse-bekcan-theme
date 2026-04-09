@@ -1,0 +1,43 @@
+/* =========================================================
+   GRUP KARTLARI DİNAMİK ARKAPLAN (AÇIKLAMADAN ÇEKİLEN RESİM)
+========================================================= */
+
+.group-box.has-dynamic-bg {
+  /* JS tarafından atanan değişkeni arkaplan olarak kullanıyoruz */
+  background-image: var(--custom-group-bg) !important;
+  background-size: cover !important;
+  background-position: center !important;
+  background-repeat: no-repeat !important;
+  position: relative !important;
+  border: none !important;
+  overflow: hidden !important;
+  
+  /* Arkaplan eklendiğinde yazıların okunabilmesi için koyu bir katman (Overlay) */
+  &::before {
+    content: "" !important;
+    position: absolute !important;
+    inset: 0 !important;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.8)) !important;
+    z-index: 1 !important;
+    pointer-events: none !important;
+  }
+
+  /* Kartın içindeki tüm içerikleri (Yazılar, butonlar) overlay katmanının üstüne çıkart */
+  .group-box-inner, 
+  .group-info, 
+  .group-avatar, 
+  .group-description {
+    position: relative !important;
+    z-index: 2 !important;
+    color: #ffffff !important; /* Yazıları karanlık zemin üzerinde beyaza zorla */
+  }
+
+  /* Alt kısımdaki üye sayısı gibi meta bilgileri için renk düzeltmesi */
+  .group-stat {
+    color: rgba(255, 255, 255, 0.8) !important;
+  }
+  
+  .group-stat .d-icon {
+    color: #ffffff !important;
+  }
+}
