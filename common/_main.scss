@@ -4,12 +4,6 @@
 }
 
 /* BEKCAN - Full Width (Tam Genişlik) Ayarı */
-:root {
-  /*--d-max-width: 86%; /* Ekranın %96'sını kaplar, kenarlarda estetik bir nefes payı bırakır */
-}
-
-
-
 @media screen and (min-width: 1080px) {
     :root {
         --d-max-width: 86%;
