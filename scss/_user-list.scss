@@ -132,6 +132,11 @@
     box-shadow: 0 3px 8px var(--primary-low) !important;
 }
 
+/* "Username" (Kullanıcı Adı) filtre butonunu tamamen gizle */
+.directory .directory-table__header .directory-table__column-header:first-child {
+    display: none !important;
+}
+
 /* =========================================================
    4. KULLANICI ADI VE ÇİZGİ (TİRE) YOK ETME SİHRİ
 ========================================================= */
