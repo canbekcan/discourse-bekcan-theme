@@ -225,8 +225,6 @@
     
     /* Tema arkaplanı ve karta gömülü hissi için iç çerçeve */
     background-color: var(--secondary) !important;
-    border-bottom: 1px solid var(--primary-low) !important;
-    border-right: 1px solid var(--primary-low) !important;
     z-index: 5 !important;
 }
 
@@ -257,7 +255,7 @@
 .directory .directory-table__row.me::before {
     content: "" !important;
     position: absolute !important;
-    inset: -3px !important;
+    inset: -2px !important;
     border-radius: 15px !important;
     background-image: conic-gradient(from var(--angle), #ff4545, #00ff99, #006aff, #ff0095, #ff4545) !important;
     filter: blur(15px) !important; /* Dışarı vuran ışık huzmesi */
@@ -270,8 +268,8 @@
 .directory .directory-table__row.me::after {
     content: "" !important;
     position: absolute !important;
-    inset: -3px !important; /* Çerçeveyi dışa doğru 3px taşır */
-    border: 1px solid transparent !important; /* Çerçeve için 3px şeffaf boşluk bırak */
+    inset: -2px !important; /* Çerçeveyi dışa doğru 3px taşır */
+    border: 2px solid transparent !important; /* Çerçeve için 3px şeffaf boşluk bırak */
     border-radius: 15px !important; 
     
     /* İŞTE SİHİR: İçi temanın arka planı (padding-box), dış çemberi ise dönen RGB (border-box) */
