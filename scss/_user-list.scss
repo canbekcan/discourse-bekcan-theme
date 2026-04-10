@@ -150,8 +150,8 @@
     /* Karanlık/Aydınlık mod uyumlu, zemin renginden şeffafa geçiş */
     background: linear-gradient(to top, var(--secondary) 15%, transparent 100%) !important;
     
-    border-bottom-left-radius: 13px !important;
-    border-bottom-right-radius: 13px !important;
+    border-bottom-left-radius: 12px !important;
+    border-bottom-right-radius: 12px !important;
     
     display: flex !important;
     flex-direction: column !important;
