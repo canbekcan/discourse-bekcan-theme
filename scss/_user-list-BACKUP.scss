@@ -57,7 +57,7 @@
 }
 
 /* =========================================================
-   2. KART YAPISI (SİLME/FULL-BLEED YAPI)
+   2. KART YAPISI (DARK/LIGHT MOD UYUMLU)
 ========================================================= */
 .directory .directory-table__body {
     display: flex !important;
@@ -71,29 +71,37 @@
 .directory .directory-table__row {
     display: flex !important;
     flex-direction: column !important;
+    align-items: center !important;
     width: 120px !important; 
-    height: 160px !important; /* Avatarın sığması için sabit bir dikey boyut şarttır */
-    padding: 0 !important; /* DİKKAT: Kart iç boşlukları (padding) tamamen sıfırlandı */
+    min-width: 120px !important;
+    padding: 15px 10px !important;
     border-radius: 12px !important;
     
+    /* KART TASARIMI: Tema rengini ve tema çizgisini kullanır */
     background-color: var(--secondary) !important;
     border: 1px solid var(--primary-low) !important; 
-    box-shadow: 0 4px 10px rgba(0,0,0,0.03) !important;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.03) !important; /* Çok hafif genel gölge */
     transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease !important;
     
-    position: relative !important; /* İçerideki absolute (bağımsız) öğelerin referans noktası */
+    position: relative !important; /* Rozet için referans noktası */
 }
 
+/* Karta gelindiğinde parlamayı temanın rengiyle (tertiary) yap */
 .directory .directory-table__row:hover {
     transform: translateY(-5px) !important;
     border-color: var(--tertiary) !important; 
     box-shadow: 0 8px 20px var(--primary-low) !important; /* Koyu/Açık temada çalışan gölge */
 }
 
+/* KENDİ PROFİLİNİ (.me) VURGULAMA */
+.directory .directory-table__row.me {
+    background-color: var(--tertiary-low) !important;
+    border: 1px solid var(--tertiary) !important; 
+}
+
 /* =========================================================
-   3. GÖRSELİ (AVATAR) KARTA GÖMME VE HİZALAMA
+   3. GEREKSİZ HÜCRELERİ GİZLEME
 ========================================================= */
-/* Gereksiz hücreleri tamamen gizle */
 .directory .directory-table__row > .directory-table__cell:not(:first-child),
 .directory .directory-table__row > div:not(:first-child),
 .directory .name-wrapper,
@@ -101,71 +109,53 @@
     display: none !important;
 }
 
-/* Avatarın bulunduğu hücre ve konteynerleri kartın tamamına yay */
-.directory .directory-table__cell:first-child,
-.directory .user-info,
-.directory .user-image,
-.directory .user-image-inner,
-.directory .user-image-inner a {
-    display: block !important; 
+.directory .directory-table__cell:first-child {
+    display: flex !important;
+    justify-content: center !important;
     width: 100% !important;
-    height: 100% !important;
-    padding: 0 !important;
-    margin: 0 !important;
-    position: static !important;
-    border-radius: 13px !important; 
+    background-color: transparent !important;
 }
 
-/* SİHİRLİ DOKUNUŞ: Avatarı doğrudan kartın arkaplanı gibi davranmaya zorluyoruz */
-.directory .user-image .avatar {
-    position: absolute !important;
-    inset: 0 !important; /* Top, Right, Bottom, Left değerlerini 0 yapar */
-    width: 100% !important;
-    height: 100% !important;
-    max-width: 100% !important;
-    max-height: 100% !important;
-    
-    /* Taşmayı önlemek için kartın kendi kavis (border-radius) değeriyle aynı olmalı */
-    border-radius: 13px !important; 
-    
-    /* Resmi ezmeden/sündürmeden karta sığdırıp fazla kısımları kırpar */
-    object-fit: cover !important; 
-    
-    margin: 0 !important;
-    box-shadow: none !important;
-    z-index: 1 !important; /* En alt katman (Arkaplan) */
-}
-
-/* =========================================================
-   4. KULLANICI ADI VE %40 TERS GRADYAN (DARK/LIGHT UYUMLU)
-========================================================= */
-.directory .user-detail {
-    position: absolute !important;
-    bottom: 0 !important;
-    left: 0 !important;
-    width: 100% !important;
-    height: 45% !important; /* Alt kısımdan yukarı doğru yükseklik */
-    margin: 0 !important;
-    
-    /* Karanlık/Aydınlık mod uyumlu, zemin renginden şeffafa geçiş */
-    background: linear-gradient(to top, var(--secondary) 15%, transparent 100%) !important;
-    
-    border-bottom-left-radius: 13px !important;
-    border-bottom-right-radius: 13px !important;
-    
+.directory .user-info {
     display: flex !important;
     flex-direction: column !important;
-    justify-content: flex-end !important; /* Yazıyı en alta iter */
-    padding-bottom: 12px !important; 
-    z-index: 2 !important; /* Profil fotoğrafının (z-index: 1) üzerine çıkması için */
+    align-items: center !important;
+    margin: 0 !important;
+    width: 100% !important;
 }
 
+.directory .user-image,
+.directory .user-image-inner {
+    position: static !important; /* Rozeti karta bağlamak için kısıtlamayı kaldır */
+}
+
+.directory .user-image .avatar {
+    width: 75px !important;
+    height: 75px !important;
+    border-radius: 50% !important;
+    margin-bottom: 2px !important;
+    box-shadow: 0 3px 8px var(--primary-low) !important;
+}
+
+
+/* =========================================================
+   4. KULLANICI ADI VE ÇİZGİ (TİRE) YOK ETME SİHRİ
+========================================================= */
+.directory .user-detail {
+    margin: 0 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important; 
+    width: 100% !important;
+}
+
+/* Çizgiyi yok etmek için kapsayıcıyı tamamen "şeffaf ve sıfır piksel" yapıyoruz */
 .directory .name-line {
     display: flex !important;
     justify-content: center !important;
     width: 100% !important;
     font-size: 0 !important; 
-    color: transparent !important;
+    color: transparent !important; /* ÇİZGİYİ YOK EDEN SİHİR */
 }
 
 .directory .name-line::before,
@@ -180,13 +170,14 @@
     display: flex !important;
     justify-content: center !important;
     width: 100% !important;
-    padding: 0 10px !important;
+    max-width: 100px !important; 
 }
 
 .directory .username {
-    font-size: 10px !important; 
-    font-weight: 700 !important;
-    color: var(--primary) !important;
+    /* Şeffaf kapsayıcının içinde Kullanıcı Adını tekrar görünür yapıyoruz */
+    font-size: 14px !important; 
+    font-weight: 600 !important;
+    color: var(--primary) !important; /* Temanın metin rengi */
     text-align: center !important;
     
     display: block !important;
@@ -194,12 +185,6 @@
     white-space: nowrap !important; 
     overflow: hidden !important; 
     text-overflow: ellipsis !important; 
-    text-shadow: 0 1px 3px var(--secondary) !important; /* Gradyan üzerinde ekstra okunabilirlik */
-}
-
-/* Rozetin fotoğrafın ve gradyanın altında kalmaması için z-index güvencesi */
-.directory .avatar-flair {
-    z-index: 3 !important; 
 }
 
 /* =========================================================
@@ -207,8 +192,8 @@
 ========================================================= */
 .directory .avatar-flair {
     position: absolute !important;
-    top: 0 !important; /* Çerçeveyle tam hizalamak için -1px */
-    right: 0 !important;
+    top: -1px !important; /* Çerçeveyle tam hizalamak için -1px */
+    right: -1px !important;
     width: 32px !important; 
     height: 32px !important;
     margin: 0 !important;
