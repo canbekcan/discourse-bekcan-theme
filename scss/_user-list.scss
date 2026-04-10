@@ -126,7 +126,7 @@
     max-height: 100% !important;
     
     /* Taşmayı önlemek için kartın kendi kavis (border-radius) değeriyle aynı olmalı */
-    border-radius: 13px !important; 
+    border-radius: 12px !important; 
     
     /* Resmi ezmeden/sündürmeden karta sığdırıp fazla kısımları kırpar */
     object-fit: cover !important; 
@@ -186,7 +186,7 @@
 }
 
 .directory .username {
-    font-size: 10px !important; 
+    font-size: 12px !important; 
     font-weight: 700 !important;
     color: var(--primary) !important;
     text-align: center !important;
@@ -256,7 +256,7 @@
     content: "" !important;
     position: absolute !important;
     inset: -2px !important;
-    border-radius: 15px !important;
+    border-radius: 14px !important;
     background-image: conic-gradient(from var(--angle), #ff4545, #00ff99, #006aff, #ff0095, #ff4545) !important;
     filter: blur(15px) !important; /* Dışarı vuran ışık huzmesi */
     opacity: 0.7 !important;
@@ -270,7 +270,7 @@
     position: absolute !important;
     inset: -2px !important; /* Çerçeveyi dışa doğru 3px taşır */
     border: 2px solid transparent !important; /* Çerçeve için 3px şeffaf boşluk bırak */
-    border-radius: 15px !important; 
+    border-radius: 14px !important; 
     
     /* İŞTE SİHİR: İçi temanın arka planı (padding-box), dış çemberi ise dönen RGB (border-box) */
     background: 

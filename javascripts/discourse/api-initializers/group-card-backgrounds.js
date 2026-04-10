@@ -14,7 +14,7 @@ export default {
         },
 
         _extractAndApplyBackground() {
-          const group = this.get("group");
+          const group = this.group || this.get("group");
           
           // Grubun açıklaması yoksa işlemi durdur
           if (!group || !group.bio_cooked) return;
