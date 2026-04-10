@@ -158,6 +158,7 @@
     justify-content: flex-end !important; /* Yazıyı en alta iter */
     padding-bottom: 12px !important; 
     z-index: 2 !important; /* Profil fotoğrafının (z-index: 1) üzerine çıkması için */
+    pointer-events: none !important;
 }
 
 .directory .name-line {
@@ -181,6 +182,7 @@
     justify-content: center !important;
     width: 100% !important;
     padding: 0 10px !important;
+    pointer-events: auto !important;
 }
 
 .directory .username {
