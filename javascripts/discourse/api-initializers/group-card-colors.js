@@ -44,7 +44,7 @@ export default {
             /* Üzerine gelindiğinde avatar hafifçe büyüsün ve parlaması artsın */
             .group-${groupName}:hover .avatar {
               box-shadow: 0 0 0 1px ${color}, 0 6px 15px color-mix(in srgb, ${color} 80%, transparent) !important;
-              transform: scale(1.15) !important;
+              /* transform: scale(1.15) !important;*/
               z-index: 5 !important;
             }
           `;
