@@ -1,3 +1,7 @@
 tag_colors:
   default: ""
   type: list
+
+group_colors:
+  default: ""
+  type: list
