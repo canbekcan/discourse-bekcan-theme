@@ -27,6 +27,7 @@ export default {
             }
 
             .directory .directory-table__row:has(.avatar-flair-${groupName}):hover {
+              border-color: ${color} !important;
               box-shadow: 0 8px 25px color-mix(in srgb, ${color} 60%, transparent) !important;
             }
 
