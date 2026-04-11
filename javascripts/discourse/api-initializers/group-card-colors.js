@@ -37,13 +37,13 @@ export default {
             /* a.group-BEKCAN gibi sınıfların içindeki resmi hedefliyoruz */
             .group-${groupName} .avatar {
               /* MİMARİ HACK: Resmi ezmeden 2px'lik sahte bir çerçeve (inset/outset gölge) ve dış parlama veriyoruz */
-              box-shadow: 0 0 0 2px ${color}, 0 4px 8px color-mix(in srgb, ${color} 40%, transparent) !important;
+              box-shadow: 0 0 0 1px ${color}, 0 4px 8px color-mix(in srgb, ${color} 40%, transparent) !important;
               transition: all 0.2s cubic-bezier(0.34, 1.56, 0.64, 1) !important; 
             }
             
             /* Üzerine gelindiğinde avatar hafifçe büyüsün ve parlaması artsın */
             .group-${groupName}:hover .avatar {
-              box-shadow: 0 0 0 2px ${color}, 0 6px 15px color-mix(in srgb, ${color} 80%, transparent) !important;
+              box-shadow: 0 0 0 1px ${color}, 0 6px 15px color-mix(in srgb, ${color} 80%, transparent) !important;
               transform: scale(1.15) !important;
               z-index: 5 !important;
             }
