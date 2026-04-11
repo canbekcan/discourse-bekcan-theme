@@ -10,3 +10,4 @@ en:
     description: "A Discourse theme specially designed for BEKCAN Institute. It aims to enhance community interaction with a modern UI."
     settings:
       tag_colors: "Add tag info separated by COMMAS: tag-name, bg-color, text-color, icon (Optional). Ex: manifesto, #8C6238, #FFFFFF, 📜"
+      group_colors: "Add group-specific border/glow colors on user cards separated by COMMAS: group-name, color. Ex: BEKCAN, #FFD700"
