@@ -2,17 +2,14 @@
    10. SIDEBAR YENİ İÇERİK PARLAMA (PULSE/GLOW) EFEKTİ
 ========================================================= */
 
-/* A) Animasyon Motorunun (Keyframes) Tanımlanması */
+/* A) Animasyon Motoru */
 @keyframes bekcan-sidebar-pulse {
     0% {
         background-color: transparent;
         box-shadow: inset 0 0 0 transparent;
     }
     50% {
-        /* Vurgu renginin %10 şeffaf haliyle arkaplanı yumuşakça doldurur */
         background-color: color-mix(in srgb, var(--tertiary) 10%, transparent) !important;
-        
-        /* Sol kenara ince bir çizgi (dikkat çekici) ve hafif bir dış parlama (glow) ekler */
         box-shadow: inset 3px 0 0 var(--tertiary), 0 0 10px color-mix(in srgb, var(--tertiary) 15%, transparent) !important;
     }
     100% {
@@ -21,24 +18,21 @@
     }
 }
 
-/* B) Discourse Kenar Çubuğundaki Okunmamış Öğeleri Hedefleme */
-.sidebar-wrapper .sidebar-section-link.has-unread {
-    /* Taşan parlamaları engellemek ve şık durması için yumuşak köşeler */
+/* B) Discourse Modern Kenar Çubuğu Hedefleme (MİMARİ DÜZELTME)
+   İçerisinde okunmamış (.unread) veya yeni (.new-posts) bildirim 
+   rozeti barındıran kategori linklerini :has() ile buluyoruz */
+.sidebar-wrapper .sidebar-section-link:has(.badge-notification) {
     border-radius: 6px !important;
-    
-    /* Animasyonu uygula: 2.5 saniyede bir sonsuza kadar yavaşça "Nefes Alıp Verir" (Pulse) */
     animation: bekcan-sidebar-pulse 2.5s infinite ease-in-out !important;
     
-    /* Metnin okunabilirliğini artırmak için yazıyı hafif kalınlaştır */
+    /* Yazıyı hafif kalınlaştırıp dikkat çekici hale getir */
     font-weight: 600 !important;
     color: var(--primary) !important;
 }
 
 /* C) Etkileşim (Hover) Kontrolü */
-/* Kullanıcı fareyi o kategorinin üzerine getirdiğinde animasyonu durdur ve rengi sabitle.
-   (Hareket eden bir şeye tıklamaya çalışmak kullanıcıyı psikolojik olarak yorar) */
-.sidebar-wrapper .sidebar-section-link.has-unread:hover,
-.sidebar-wrapper .sidebar-section-link.has-unread:focus {
+.sidebar-wrapper .sidebar-section-link:has(.badge-notification):hover,
+.sidebar-wrapper .sidebar-section-link:has(.badge-notification):focus {
     animation: none !important;
     background-color: color-mix(in srgb, var(--tertiary) 15%, transparent) !important;
     box-shadow: inset 3px 0 0 var(--tertiary) !important;
