@@ -10,4 +10,4 @@ tr_TR:
     description: "BEKCAN Enstitüsü için özel olarak tasarlanmış bir Discourse temasıdır. Modern ve kullanıcı dostu bir arayüz sunarak, topluluk üyelerinin etkileşimini artırmayı hedefler."
     settings:
       tag_colors: "Etiket bilgilerini VİRGÜL ile ayırarak ekleyin: etiket-adi, arkaplan-rengi, metin-rengi, ikon (Opsiyonel). Örn: manifesto, #8C6238, #FFFFFF, 📜"
-      group_colors: "Kullanıcı kartlarındaki gruba özel sınır/parlama renklerini veya resimlerini VİRGÜL ile ayırarak ekleyin: grup-adi, renk. Örn: BEKCAN, #FFD700 veya BEKCAN, url-to-image"
+      group_colors: "Kullanıcı kartlarındaki gruba özel sınır/parlama renklerini VİRGÜL ile ayırarak ekleyin: grup-adi, renk. Örn: BEKCAN, #FFD700"
