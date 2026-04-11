@@ -18,10 +18,9 @@
     }
 }
 
-/* B) Discourse Modern Kenar Çubuğu Hedefleme (MİMARİ DÜZELTME)
-   İçerisinde okunmamış (.unread) veya yeni (.new-posts) bildirim 
-   rozeti barındıran kategori linklerini :has() ile buluyoruz */
-.sidebar-wrapper .sidebar-section-link:has(.badge-notification) {
+/* B) Discourse Kenar Çubuğu Hedefleme (GÜNCELLENDİ)
+   DOM dökümünüze uygun olarak içerisinde .sidebar-section-link-content-badge barındıran linkleri bulur */
+.sidebar-wrapper .sidebar-section-link:has(.sidebar-section-link-content-badge) {
     border-radius: 6px !important;
     animation: bekcan-sidebar-pulse 2.5s infinite ease-in-out !important;
     
@@ -31,8 +30,8 @@
 }
 
 /* C) Etkileşim (Hover) Kontrolü */
-.sidebar-wrapper .sidebar-section-link:has(.badge-notification):hover,
-.sidebar-wrapper .sidebar-section-link:has(.badge-notification):focus {
+.sidebar-wrapper .sidebar-section-link:has(.sidebar-section-link-content-badge):hover,
+.sidebar-wrapper .sidebar-section-link:has(.sidebar-section-link-content-badge):focus {
     animation: none !important;
     background-color: color-mix(in srgb, var(--tertiary) 15%, transparent) !important;
     box-shadow: inset 3px 0 0 var(--tertiary) !important;
