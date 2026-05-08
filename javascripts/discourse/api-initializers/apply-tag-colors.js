@@ -4,14 +4,23 @@ export default {
   name: "bekcan-tag-colors",
   initialize() {
     withPluginApi("1.3.0", (api) => {
-      const settingString = settings.tag_colors;
-      if (!settingString) return;
+      const tagColorsSetting = settings.tag_colors;
+      if (!tagColorsSetting) return;
 
-      const colorList = settingString.split("|");
+      // HATA DÜZELTMESİ: Gelen veri Array mi String mi kontrol et (Modern Discourse Uyumluluğu)
+      let colorList = [];
+      if (Array.isArray(tagColorsSetting)) {
+        colorList = tagColorsSetting;
+      } else if (typeof tagColorsSetting === "string") {
+        colorList = tagColorsSetting.split("|");
+      }
+
+      if (colorList.length === 0) return;
+
       let cssRules = "";
 
       colorList.forEach((item) => {
-        const parts = item.split(",");
+        const parts = typeof item === "string" ? item.split(",") : [];
         
         if (parts.length >= 3) {
           const tagName = parts[0].trim().toLowerCase();
@@ -34,7 +43,7 @@ export default {
               background-color: ${bgColor} !important;
             }
 
-            /* YENİ: 2. Sidebar (Sol Menü) HTML Yapısına Uygun Renklendirme */
+            /* 2. Sidebar (Sol Menü) HTML Yapısına Uygun Renklendirme */
             li.sidebar-section-link-wrapper[data-tag-name="${tagName}"] .sidebar-section-link-content-text,
             li.sidebar-section-link-wrapper[data-tag-name="${tagName}"] .sidebar-section-link-prefix svg {
               color: ${bgColor} !important;
@@ -44,7 +53,6 @@ export default {
           // 3. İkon Kuralları
           if (icon !== "") {
             cssRules += `
-              /* Normal etiketlerde ikon */
               .discourse-tag.box[data-tag-name="${tagName}"]::before,
               .discourse-tag.simple[data-tag-name="${tagName}"]::before {
                 content: "${icon}";
@@ -52,14 +60,12 @@ export default {
                 font-family: "Segoe UI Emoji", "Apple Color Emoji", "Noto Color Emoji", sans-serif;
               }
               
-              /* YENİ: Sidebar'da metnin yanına ikon ekleme */
               li.sidebar-section-link-wrapper[data-tag-name="${tagName}"] .sidebar-section-link-content-text::before {
                 content: "${icon}";
                 margin-right: 6px;
                 font-family: "Segoe UI Emoji", "Apple Color Emoji", "Noto Color Emoji", sans-serif;
               }
               
-              /* YENİ: Özel ikon eklendiyse, Sidebar'daki varsayılan sıkıcı etiket ikonunu gizle */
               li.sidebar-section-link-wrapper[data-tag-name="${tagName}"] .sidebar-section-link-prefix {
                 display: none !important;
               }
@@ -69,11 +75,15 @@ export default {
       });
 
       if (cssRules !== "") {
-        const style = document.createElement("style");
-        style.type = "text/css";
-        style.id = "bekcan-tag-colors-style";
+        // PERFORMANS DÜZELTMESİ: <style> etiketi zaten varsa üzerine yaz, yoksa yarat
+        let style = document.getElementById("bekcan-tag-colors-style");
+        if (!style) {
+          style = document.createElement("style");
+          style.type = "text/css";
+          style.id = "bekcan-tag-colors-style";
+          document.head.appendChild(style);
+        }
         style.innerHTML = cssRules;
-        document.head.appendChild(style);
       }
     });
   }
